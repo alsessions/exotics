@@ -6,34 +6,68 @@
 
 {% block content %}
 
-    <div class="py-16 px-8 max-w-5xl mx-auto">
-        <h2 class="text-2xl font-bold mb-12 text-center">Our Menu</h2>
+<div class="bg-neutral-950 text-white min-h-screen py-8 px-4">
+  <div class="max-w-7xl mx-auto">
 
-        {% for category in categories %}
-            <section class="mb-12">
-                <h3 class="text-xl font-bold mb-6 pb-3 border-b border-stone-200">{{ category.title }}</h3>
+    {# Page heading #}
+    <div class="text-center mb-8">
+      <h1 class="text-amber-400 text-4xl font-black uppercase tracking-widest leading-none">Exotic Grill</h1>
+      <p class="text-white text-sm font-bold uppercase tracking-widest mt-1">NYC Style Deli</p>
+      <div class="flex justify-center gap-6 mt-2">
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Coffee</span>
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Breakfast</span>
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Lunch</span>
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Snacks</span>
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Dinner</span>
+      </div>
+    </div>
 
-                {% set items = category.menuItems.all() %}
-                {% if items | length %}
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {% for item in items %}
-                            <div class="flex justify-between items-start gap-4 py-3 border-b border-stone-100">
-                                <div>
-                                    <p class="font-semibold">{{ item.title }}</p>
-                                    {% if item.body %}
-                                        <p class="text-stone-500 text-sm">{{ item.body }}</p>
-                                    {% endif %}
-                                </div>
-                                {% if item.price %}
-                                    <span class="text-amber-600 font-bold shrink-0">{{ item.price | money }}</span>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-                    </div>
+    {# Menu sections — CSS columns for natural deli-board flow #}
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-x-6">
+
+      {% for category in categories %}
+        <div class="mb-5 break-inside-avoid">
+
+          {# Section header #}
+          <div class="border-b-2 border-amber-400 pb-1 mb-2 text-center">
+            <h3 class="text-amber-400 font-black uppercase tracking-wider text-base leading-tight">
+              {{ category.title }}
+            </h3>
+          </div>
+
+          {# Menu items #}
+          {% set items = category.menuItems.all() %}
+          {% if items | length %}
+            {% for item in items %}
+              <div class="flex justify-between items-start gap-2 py-1 border-b border-neutral-800 last:border-0">
+                <div class="flex-1 min-w-0">
+                  <p class="text-white font-semibold text-xs leading-snug">{{ item.title }}</p>
+                  {% if item.body %}
+                    <p class="text-neutral-400 text-xs leading-snug">{{ item.body | raw }}</p>
+                  {% endif %}
+                </div>
+                {% if item.price %}
+                  <span class="text-white font-bold text-xs shrink-0 tabular-nums">
+                    {{ item.price | money }}
+                  </span>
                 {% endif %}
-            </section>
-        {% endfor %}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+        </div>
+      {% endfor %}
 
     </div>
+
+    {# Contact / Hours footer #}
+    <div class="mt-10 border-t border-amber-400 pt-6 text-center">
+      <p class="text-amber-400 font-bold text-sm uppercase tracking-widest">📍 264 Suite A Broadway, Whitehall NY, 12887</p>
+      <p class="text-white text-sm mt-1">📞 518-499-5600</p>
+      <p class="text-neutral-400 text-xs mt-1 uppercase tracking-widest">Business Hours: 6am – 9pm</p>
+    </div>
+
+  </div>
+</div>
 
 {% endblock %}
