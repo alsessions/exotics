@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 7ee85ad6-5ee2-41e3-8f15-bbbeab1e7bba # Builder
+handle: contactUs
+maxAuthors: 1
+name: 'Contact Us'
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  e71987ba-ca9d-4e75-a16d-cbeae3018980: # Exotic Deli and Grill
+    enabledByDefault: true
+    hasUrls: true
+    template: contact
+    uriFormat: contact
+type: single

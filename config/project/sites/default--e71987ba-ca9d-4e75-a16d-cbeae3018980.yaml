@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'Exotic Deli and Grill'
+primary: true
+siteGroup: 3a27b3e4-640d-43db-b098-c5dd72e56710 # Exotic Deli and Grill
+sortOrder: 1

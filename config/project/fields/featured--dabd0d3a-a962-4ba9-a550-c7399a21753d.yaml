@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: featured
+instructions: 'Show this item in the homepage highlights.'
+name: Featured
+searchable: false
+settings:
+  default: false
+  offLabel: ''
+  onLabel: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

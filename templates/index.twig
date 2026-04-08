@@ -1,0 +1,111 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+    <section class="bg-stone-800 text-white py-24 px-8 text-center">
+        <h2 class="text-4xl font-bold mb-4">Taste Something Extraordinary</h2>
+        <p class="text-stone-300 max-w-xl mx-auto mb-8">Handcrafted sandwiches, slow-grilled meats, and bold flavors from around the world — served fresh daily.</p>
+        <a href="/menu" class="inline-block bg-amber-500 hover:bg-amber-400 text-stone-900 font-semibold px-6 py-3 rounded transition-colors">See Our Menu</a>
+    </section>
+
+    {% set highlights = craft.entries.field('menuItems').featured(true).limit(6).all() %}
+
+    {% if highlights | length %}
+        <section class="relative overflow-hidden">
+            <img
+                src="/images/restaurant.jpg"
+                alt="Inside Exotic Deli and Grill"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            <div class="absolute inset-0 bg-stone-900/75"></div>
+
+            <div class="relative z-10 py-20 px-8 max-w-5xl mx-auto">
+                <h2 class="text-2xl font-bold text-white mb-2 text-center">Today's Highlights</h2>
+                <p class="text-stone-400 text-sm text-center mb-10">A few things we're loving right now.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for item in highlights %}
+                        <div class="bg-stone-900/60 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+                            <h3 class="font-semibold text-lg text-white mb-1">{{ item.title }}</h3>
+                            {% if item.body %}
+                                <p class="text-stone-400 text-sm mb-4">{{ item.body }}</p>
+                            {% endif %}
+                            {% if item.price %}
+                                <span class="text-amber-400 font-bold">{{ item.price | money }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="py-16 px-8 bg-white">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            {# Map #}
+            <div class="rounded-xl overflow-hidden shadow-sm border border-stone-200 h-80 lg:h-full min-h-80">
+                <iframe
+                    src="https://maps.google.com/maps?q=Market+Street,+San+Francisco,+CA&output=embed"
+                    class="w-full h-full"
+                    style="border:0; min-height:320px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Exotic Deli and Grill location"
+                ></iframe>
+            </div>
+
+            {# Contact info #}
+            <div class="flex flex-col justify-center gap-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-1">Find Us</h2>
+                    <p class="text-stone-500 text-sm">We'd love to see you.</p>
+                </div>
+
+                <ul class="space-y-5 text-sm">
+                    <li class="flex gap-4 items-start">
+                        <span class="text-amber-500 mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25c-4.556 0-8.25 3.582-8.25 8 0 5.25 8.25 11.5 8.25 11.5s8.25-6.25 8.25-11.5c0-4.418-3.694-8-8.25-8z"/></svg>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-stone-800">Address</p>
+                            <p class="text-stone-500">123 Market Street<br>San Francisco, CA 94105</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="text-amber-500 mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l3.75 3.75M21.75 12a9.75 9.75 0 11-19.5 0 9.75 9.75 0 0119.5 0z"/></svg>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-stone-800">Hours</p>
+                            <p class="text-stone-500">Monday – Saturday: 11am – 8pm<br>Sunday: Closed</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="text-amber-500 mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-stone-800">Phone</p>
+                            <a href="tel:+15550001234" class="text-stone-500 hover:text-amber-600 transition-colors">(555) 000-1234</a>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="text-amber-500 mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+                        </span>
+                        <div>
+                            <p class="font-semibold text-stone-800">Email</p>
+                            <a href="mailto:hello@exoticdeli.com" class="text-stone-500 hover:text-amber-600 transition-colors">hello@exoticdeli.com</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="/contact" class="self-start inline-block bg-amber-500 hover:bg-amber-400 text-stone-900 font-semibold px-5 py-2.5 rounded transition-colors text-sm">Send us a message</a>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

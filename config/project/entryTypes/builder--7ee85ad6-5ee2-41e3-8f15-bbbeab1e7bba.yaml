@@ -1,0 +1,70 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  807f4288-7c12-4dfb-9b6a-6cbf3472abd9:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-03-28T23:41:32+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6c16993b-80d0-45e3-9ef0-98ea8b7b25b3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-28T23:44:01+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 3253ca83-4f48-4fd5-8735-a79ec2039d2e # Body
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4b062dee-eea7-4e62-a7a7-31454ed53283
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 72d430d1-4af6-4a10-8e2c-79cf9529308e
+        userCondition: null
+    thumbFieldKey: null
+handle: builder
+hasTitleField: true
+icon: null
+name: Builder
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

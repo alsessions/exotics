@@ -1,0 +1,19 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: fb83b8a5-c308-48ac-a7a3-8928f65c6554 # Menu Category
+handle: menu
+maxAuthors: 1
+name: Menu
+propagationMethod: all
+siteSettings:
+  e71987ba-ca9d-4e75-a16d-cbeae3018980: # Exotic Deli and Grill
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: df0c4ef5-e3fd-4eb5-8036-7a878b793fc8
+type: structure

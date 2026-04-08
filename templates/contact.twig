@@ -1,0 +1,108 @@
+{% extends '_layout' %}
+
+{% block title %}Contact – Exotic Deli and Grill{% endblock %}
+
+{% block content %}
+
+    <section class="py-16 px-8">
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8 text-center">Get in Touch</h2>
+
+            <div class="bg-white rounded-xl shadow-sm p-8 border border-stone-200 mb-8">
+                <ul class="text-stone-600 text-sm space-y-2">
+                    <li><span class="font-semibold text-stone-800">Address:</span> 123 Market Street</li>
+                    <li><span class="font-semibold text-stone-800">Hours:</span> Mon–Sat, 11am–8pm</li>
+                    <li><span class="font-semibold text-stone-800">Email:</span> <a href="mailto:hello@exoticdeli.com" class="text-amber-600 hover:text-amber-500 transition-colors">hello@exoticdeli.com</a></li>
+                    <li><span class="font-semibold text-stone-800">Phone:</span> <a href="tel:+15550001234" class="text-amber-600 hover:text-amber-500 transition-colors">(555) 000-1234</a></li>
+                </ul>
+            </div>
+
+            {% set contactForm = craft.freeform.form('contact') %}
+            {% if contactForm %}
+
+                {% set fullName    = contactForm.get('fullName') %}
+                {% set emailAddress = contactForm.get('emailAddress') %}
+                {% set message     = contactForm.get('message') %}
+                {% set button      = contactForm.currentPage.buttons %}
+
+                {% set inputClass = 'w-full border rounded px-3 py-2 text-sm text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition' %}
+                {% set labelClass = 'block text-sm font-medium text-stone-700 mb-1' %}
+                {% set errorClass = 'mt-1 text-xs text-red-600' %}
+
+                <div class="bg-white rounded-xl shadow-sm p-8 border border-stone-200">
+
+                    {% if contactForm.submittedSuccessfully %}
+                        <p class="text-center text-stone-700 font-medium py-4">Thanks for reaching out — we'll be in touch soon.</p>
+                    {% else %}
+
+                        {{ contactForm.renderTag({ disable: ['submitButtons'] }) }}
+
+                        {% if contactForm.hasErrors %}
+                            <p class="mb-4 text-sm text-red-600">Please correct the errors below and try again.</p>
+                        {% endif %}
+
+                        <div class="space-y-5">
+
+                            <div>
+                                <label class="{{ labelClass }}" for="form-input-fullName">{{ fullName.label }}{% if fullName.required %} <span class="text-red-500">*</span>{% endif %}</label>
+                                <input
+                                    type="text"
+                                    id="form-input-fullName"
+                                    name="fullName"
+                                    value="{{ fullName.value }}"
+                                    placeholder="Your name"
+                                    class="{{ inputClass }}{% if fullName.hasErrors %} border-red-400{% else %} border-stone-300{% endif %}"
+                                    {{ fullName.required ? 'required' }}
+                                />
+                                {% if fullName.hasErrors %}
+                                    {% for error in fullName.errors %}<p class="{{ errorClass }}">{{ error }}</p>{% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                <label class="{{ labelClass }}" for="form-input-emailAddress">{{ emailAddress.label }}{% if emailAddress.required %} <span class="text-red-500">*</span>{% endif %}</label>
+                                <input
+                                    type="email"
+                                    id="form-input-emailAddress"
+                                    name="emailAddress"
+                                    value="{{ emailAddress.value }}"
+                                    placeholder="you@example.com"
+                                    class="{{ inputClass }}{% if emailAddress.hasErrors %} border-red-400{% else %} border-stone-300{% endif %}"
+                                    {{ emailAddress.required ? 'required' }}
+                                />
+                                {% if emailAddress.hasErrors %}
+                                    {% for error in emailAddress.errors %}<p class="{{ errorClass }}">{{ error }}</p>{% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                <label class="{{ labelClass }}" for="form-input-message">{{ message.label }}{% if message.required %} <span class="text-red-500">*</span>{% endif %}</label>
+                                <textarea
+                                    id="form-input-message"
+                                    name="message"
+                                    rows="5"
+                                    placeholder="How can we help?"
+                                    class="{{ inputClass }}{% if message.hasErrors %} border-red-400{% else %} border-stone-300{% endif %}"
+                                    {{ message.required ? 'required' }}
+                                >{{ message.value }}</textarea>
+                                {% if message.hasErrors %}
+                                    {% for error in message.errors %}<p class="{{ errorClass }}">{{ error }}</p>{% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <button {{ button.submitRenderProps }} class="w-full bg-amber-500 hover:bg-amber-400 text-stone-900 font-semibold py-2.5 rounded transition-colors text-sm">
+                                {{ button.submitLabel }}
+                            </button>
+
+                        </div>
+
+                        {{ contactForm.renderClosingTag }}
+
+                    {% endif %}
+                </div>
+
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

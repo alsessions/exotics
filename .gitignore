@@ -1,0 +1,10 @@
+/.env
+/.idea
+/vendor
+/node_modules
+/storage
+/web/cpresources
+/web/assets
+.DS_Store
+/config/license.key
+/config/license.key.*

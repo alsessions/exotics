@@ -1,0 +1,45 @@
+dateModified: 1775071219
+email:
+  fromEmail: admin@exotic-deli-and-grill.ddev.site
+  fromName: 'Exotic Deli and Grill'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    3a27b3e4-640d-43db-b098-c5dd72e56710: 'Exotic Deli and Grill' # Exotic Deli and Grill
+    4b3cccfc-b3f6-4fce-b1de-c8c529a97b12: 'Menu Items' # Menu Items
+    7ee85ad6-5ee2-41e3-8f15-bbbeab1e7bba: Builder # Builder
+    159add49-ea1d-4b7e-b6de-71b3d3376df3: Menu # Menu
+    202b2d55-16f9-4487-8c16-49c6d1f26774: About # About
+    3253ca83-4f48-4fd5-8735-a79ec2039d2e: Body # Body
+    8178c7cb-fdac-4b0f-899f-97e45f9b5a60: 'Contact Us' # Contact Us
+    62612bb0-0bf5-4ea3-86c3-f2d47ee1955e: 'Menu Item' # Menu Item
+    dabd0d3a-a962-4ba9-a550-c7399a21753d: Featured # Featured
+    e71987ba-ca9d-4e75-a16d-cbeae3018980: 'Exotic Deli and Grill' # Exotic Deli and Grill
+    f9383ee1-509a-42e9-98a9-85a3a0530c74: Price # Price
+    fb83b8a5-c308-48ac-a7a3-8928f65c6554: 'Menu Category' # Menu Category
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 5.0.0.1
+  cp-clearcache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  freeform:
+    edition: express
+    enabled: true
+    schemaVersion: 5.15.1
+system:
+  edition: solo
+  live: true
+  name: 'Exotic Deli and Grill'
+  schemaVersion: 5.9.0.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true
