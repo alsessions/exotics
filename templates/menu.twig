@@ -43,7 +43,7 @@
                 <div class="flex-1 min-w-0">
                   <p class="text-white font-semibold text-xs leading-snug">{{ item.title }}</p>
                   {% if item.body %}
-                    <p class="text-neutral-400 text-xs leading-snug">{{ item.body | raw }}</p>
+                    <div class="text-neutral-400 text-xs leading-snug [&_p]:text-xs [&_p]:leading-snug">{{ item.body }}</div>
                   {% endif %}
                 </div>
                 {% if item.price %}
