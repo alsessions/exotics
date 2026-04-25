@@ -12,7 +12,7 @@
     {# Page heading #}
     <div class="text-center mb-8">
       <h1 class="text-amber-400 text-4xl font-black uppercase tracking-widest leading-none">Exotic Grill</h1>
-      <p class="text-white text-sm font-bold uppercase tracking-widest mt-4 mb-12">NYC Style Deli</p>
+      <p class="text-white text-sm font-bold uppercase tracking-widest mt-4 mb-1">NYC Style Deli</p>
      
     </div>
 
@@ -43,6 +43,11 @@
                 {% if item.price %}
                   <span class="text-white font-bold text-xs shrink-0 tabular-nums">
                     {{ item.price | money }}
+                  </span>
+                {% endif %}
+                {% if item.lgPrice %}
+                  <span class="text-white font-bold text-xs shrink-0 tabular-nums">
+                    {{ item.lgPrice | money }}
                   </span>
                 {% endif %}
               </div>

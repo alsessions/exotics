@@ -1,4 +1,4 @@
-dateModified: 1775071219
+dateModified: 1777143445
 email:
   fromEmail: admin@exotic-deli-and-grill.ddev.site
   fromName: 'Exotic Deli and Grill'
@@ -10,6 +10,7 @@ meta:
     7ee85ad6-5ee2-41e3-8f15-bbbeab1e7bba: Builder # Builder
     159add49-ea1d-4b7e-b6de-71b3d3376df3: Menu # Menu
     202b2d55-16f9-4487-8c16-49c6d1f26774: About # About
+    639f360a-5b42-487c-9f52-1e2100c860a0: 'Lg Price' # Lg Price
     3253ca83-4f48-4fd5-8735-a79ec2039d2e: Body # Body
     8178c7cb-fdac-4b0f-899f-97e45f9b5a60: 'Contact Us' # Contact Us
     62612bb0-0bf5-4ea3-86c3-f2d47ee1955e: 'Menu Item' # Menu Item
