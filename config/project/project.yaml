@@ -1,4 +1,4 @@
-dateModified: 1777143445
+dateModified: 1777245796
 email:
   fromEmail: admin@exotic-deli-and-grill.ddev.site
   fromName: 'Exotic Deli and Grill'
@@ -35,8 +35,9 @@ system:
   edition: solo
   live: true
   name: 'Exotic Deli and Grill'
+  retryDuration: null
   schemaVersion: 5.9.0.8
-  timeZone: America/Los_Angeles
+  timeZone: America/New_York
 users:
   allowPublicRegistration: false
   defaultGroup: null
