@@ -5,8 +5,9 @@ name: Featured
 searchable: false
 settings:
   default: false
-  offLabel: ''
-  onLabel: ''
+  offLabel: null
+  onLabel: null
+  showLabelsInCards: true
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch
